@@ -1,0 +1,32 @@
+# 1. Automatic text detection
+# Handle all text files by normalizing them to LF in the repo.
+* text=auto
+
+# 2. Force LF for Shell/Source files (Crucial for Mac/Linux/CI-CD)
+# This ensures these files work even if a Windows user commits them.
+*.sh      text eol=lf
+*.js      text eol=lf
+*.jsx     text eol=lf
+*.ts      text eol=lf
+*.tsx     text eol=lf
+*.java    text eol=lf
+*.css     text eol=lf
+*.html    text eol=lf
+*.json    text eol=lf
+
+# 3. Special handling for the Spring Boot Maven Wrapper
+# The 'mvnw' file MUST be LF to run on Unix/Mac.
+server/mvnw text eol=lf
+
+# 4. Force CRLF for Windows-specific batch files
+# These must have Windows line endings to run in Command Prompt.
+*.cmd     text eol=crlf
+*.bat     text eol=crlf
+
+# 5. Treat binary files as binaries (Don't touch line endings)
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.jar     binary
